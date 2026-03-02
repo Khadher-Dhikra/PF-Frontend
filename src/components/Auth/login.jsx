@@ -1,39 +1,69 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Login({ toggleForm }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // منع إعادة تحميل الصفحة
+    e.preventDefault();
 
-    const response = await fetch("http://localhost:8000/api/login.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password })
-    });
+    setMessage("");
+    setLoading(true);
 
-    const data = await response.json();
+    try {
+      const response = await fetch(
+        "http://localhost:8000/api/login.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        }
+      );
 
-    if (data.status === "success") {
-      console.log("Logged in:", data.user);
-      alert(`Welcome back, ${data.user.username}`);
-    } else {
-      alert(data.message);
+      const data = await response.json();
+
+      if (data.status === "success") {
+        setMessage("Login successful ✅");
+
+        console.log("User:", data.user);
+
+      } else {
+        setMessage(data.message);
+      }
+
+    } catch (error) {
+      setMessage("Server error");
+      console.error(error);
     }
+
+    setLoading(false);
   };
 
   return (
-    <div className='Ldiv'>
+    <>
+    <div className="Ldiv">
       <form onSubmit={handleSubmit}>
         <h1>Welcome back</h1>
-        <p className='pd'>Please enter your details</p>
+        <p className="pd">Please enter your details</p>
 
-        <label htmlFor="emailAdd">Email address</label>
-        <input type="email" id='emailAdd' className='Tinput' value={email} onChange={e => setEmail(e.target.value)} />
+        <label htmlFor="email">Email address</label>
+        <input id="email" type="email" name="email" className="Tinput" onChange={handleChange} required/>
 
         <label htmlFor="pwd">Password</label>
-        <input type="password" id='pwd' className='Tinput' value={password} onChange={e => setPassword(e.target.value)} />
+        <input id="pwd" type="password" name="password" className="Tinput" onChange={handleChange} required/>
 
         <div className='RememberMe'>
           <span>
@@ -43,13 +73,24 @@ export default function Login({ toggleForm }) {
           <a href="#" id='FPWD'>Forgot password</a>
         </div>
 
-        <input type="submit" value="Sign in" className='Lbtn'/>
+        <button type="submit" className="Lbtn" disabled={loading}>
+          {loading ? "Signing in..." : "Sign in"}
+        </button>
 
-        <p className='PSup'>
-          Don't have an account? 
-          <button type="button" className="ToggBtn" onClick={toggleForm}>Sign up</button>
+        {message && <p style={{ marginTop: "10px" }}>{message}</p>}
+
+        <p className="PSup">
+          Don't have an account?{" "}
+          <button
+            type="button"
+            onClick={toggleForm}
+            className="ToggBtn"
+          >
+            Sign up
+          </button>
         </p>
       </form>
     </div>
+    </>
   );
 }

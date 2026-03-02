@@ -1,52 +1,88 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Register({ toggleForm }) {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+    setMessage("");
+
+    if (formData.password !== formData.confirmPassword) {
+      setMessage("Passwords do not match");
       return;
     }
 
-    const response = await fetch("http://localhost:8000/api/register.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, email, password })
-    });
+    setLoading(true);
 
-    const data = await response.json();
+    try {
+      const response = await fetch(
+        "http://localhost:8000/api/register.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            username: formData.username,
+            email: formData.email,
+            password: formData.password
+          })
+        }
+      );
 
-    if (data.status === "success") {
-      alert("Account created! You can login now.");
-      toggleForm(); // ارجع لصفحة login
-    } else {
-      alert(data.message);
+      const data = await response.json();
+
+      if (data.status === "success") {
+        setMessage("Registered successfully ✅");
+        setTimeout(() => {
+          toggleForm();
+        }, 1000);
+      } else {
+        setMessage(data.message);
+      }
+
+    } catch (error) {
+      setMessage("Server error");
+      console.error(error);
     }
+
+    setLoading(false);
   };
 
   return (
-    <div className='Rdiv'>
+    <div className="Rdiv">
       <form onSubmit={handleSubmit}>
         <h1>Create an Account</h1>
-        <p className='pd'>Please enter your details</p>
+        <p className="pd">Please enter your details</p>
 
-        <label htmlFor="name">Full Name</label>
-        <input type="text" id='name' className='Tinput' value={username} onChange={e => setUsername(e.target.value)} />
+        <label htmlFor="FN">Full Name</label>
+        <input id="FN" type="text" name="username" className="Tinput" onChange={handleChange} required/>
 
-        <label htmlFor="RemailAdd">Email address</label>
-        <input type="email" id='RemailAdd' className='Tinput' value={email} onChange={e => setEmail(e.target.value)} />
+        <label htmlFor="Remail">Email address</label>
+        <input id="Remail" type="email" name="email" className="Tinput" onChange={handleChange} required/>
 
-        <label htmlFor="Rpwd">Password</label>
-        <input type="password" id='Rpwd' className='Tinput' value={password} onChange={e => setPassword(e.target.value)} />
+        <label htmlFor="rpwd">Password</label>
+        <input
+          id="rpwd" type="password" name="password" className="Tinput" onChange={handleChange} required/>
 
-        <label htmlFor="cRpwd">Confirm Password</label>
-        <input type="password" id='cRpwd' className='Tinput' value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
+        <label htmlFor="cpwd">Confirm Password</label>
+        <input id="cpwd" type="password" name="confirmPassword" className="Tinput" onChange={handleChange} required/>
 
         <div className='RememberMe'>
           <span>
@@ -55,11 +91,20 @@ export default function Register({ toggleForm }) {
           </span>
         </div>
 
-        <input type="submit" value="Sign up" className='Lbtn'/>
+        <button type="submit" className="Lbtn" disabled={loading}>
+          {loading ? "Signing up..." : "Sign up"}
+        </button>
 
-        <p className='PSup'>
-          Already have an account? 
-          <button type="button" className="ToggBtn" onClick={toggleForm}>Sign in</button>
+        {message && <p style={{ marginTop: "10px" }}>{message}</p>}
+
+        <p className="PSup">Already have an account?{" "}
+          <button
+            type="button"
+            onClick={toggleForm}
+            className="ToggBtn"
+          >
+            Sign in
+          </button>
         </p>
       </form>
     </div>

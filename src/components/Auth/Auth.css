@@ -21,9 +21,9 @@
 .Dimg{
     position: absolute;
     background-color: rgb(181, 121, 236);
-    background-image: url("../../assets/patternBG.png");
+    /* background-image: url("../../assets/patternBG.png");
     background-position: center;
-    background-size: cover;
+    background-size: cover; */
     z-index: 100;
     right: 0;
 }
@@ -102,6 +102,7 @@ label{
 }
 .Tinput{
     border: 1px solid #b9b8b8;
+    font-weight: 600;
     width: 94%;
 }
 .Lbtn{
