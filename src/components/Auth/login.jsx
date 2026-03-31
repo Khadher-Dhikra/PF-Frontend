@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Login({ toggleForm }) {
+export default function Login({ toggleForm , goToForgot  }) {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -52,7 +52,7 @@ export default function Login({ toggleForm }) {
     setLoading(false);
   };
 
-  return (
+ return (
     <>
     <div className="Ldiv">
       <form onSubmit={handleSubmit}>
@@ -70,7 +70,9 @@ export default function Login({ toggleForm }) {
             <input type="checkbox" id='ckb'/>
             <label htmlFor='ckb'>Remember me</label>
           </span>
-          <a href="#" id='FPWD'>Forgot password</a>
+          <button type="button" onClick={goToForgot} className="ToggBtn">
+            Forgot password
+          </button>
         </div>
 
         <button type="submit" className="Lbtn" disabled={loading}>
@@ -81,11 +83,7 @@ export default function Login({ toggleForm }) {
 
         <p className="PSup">
           Don't have an account?{" "}
-          <button
-            type="button"
-            onClick={toggleForm}
-            className="ToggBtn"
-          >
+          <button type="button" onClick={toggleForm} className="ToggBtn">
             Sign up
           </button>
         </p>
