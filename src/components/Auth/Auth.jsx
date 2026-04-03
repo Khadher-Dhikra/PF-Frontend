@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Login from './login';
 import Register from './register';
+import ForgotPassword from './ForgotPassword';
 import DivImage from '../UI/divimage';
 import './Auth.css';
 import FPwdP from './password reset/forgetPwdPage';
@@ -16,7 +17,16 @@ export default function Auth() {
     setIsLogin(prev => !prev);
     };
 
-    return(
+    const goToLogin = () => {
+        setPage("login");
+        setAnimate(prev => prev === "ann" ? "rann" : "ann");
+    };
+
+    const goToForgot = () => {
+        setPage("forgot");
+    };
+
+    return (
         <>
             {
                 view === "login" && (<Login toggleForm={toggleForm} goToForgot={()=> setView("forgot")}/>)

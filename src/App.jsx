@@ -4,6 +4,15 @@ import Auth from './components/Auth/Auth';
 import RPwd from "./components/Auth/password reset/resetPassword";
 
 function App() {
+  const [isReset, setIsReset] = useState(false);
+
+  useEffect(() => {
+    // Si l'URL contient /reset-password?token=...
+    const token = new URLSearchParams(window.location.search).get("token");
+    if (window.location.pathname === "/reset-password" && token) {
+      setIsReset(true);
+    }
+  }, []);
 
   return (
     <>
@@ -14,7 +23,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App

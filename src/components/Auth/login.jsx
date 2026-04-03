@@ -53,7 +53,7 @@ export default function Login({ toggleForm, goToForgot }) {
     setLoading(false);
   };
 
-  return (
+ return (
     <>
     <div className="Ldiv">
       <form onSubmit={handleSubmit}>
@@ -82,11 +82,7 @@ export default function Login({ toggleForm, goToForgot }) {
 
         <p className="PSup">
           Don't have an account?{" "}
-          <button
-            type="button"
-            onClick={toggleForm}
-            className="ToggBtn"
-          >
+          <button type="button" onClick={toggleForm} className="ToggBtn">
             Sign up
           </button>
         </p>
