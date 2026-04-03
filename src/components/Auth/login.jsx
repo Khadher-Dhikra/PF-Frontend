@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Login({ toggleForm }) {
+export default function Login({ toggleForm, goToForgot }) {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -18,7 +18,7 @@ export default function Login({ toggleForm }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setMessage("");
+     ("");
     setLoading(true);
 
     try {
@@ -41,7 +41,8 @@ export default function Login({ toggleForm }) {
         console.log("User:", data.user);
 
       } else {
-        setMessage(data.message);
+        // setMessage(data.message);
+        setMessage("Incorrect Email or password.");
       }
 
     } catch (error) {
@@ -70,14 +71,14 @@ export default function Login({ toggleForm }) {
             <input type="checkbox" id='ckb'/>
             <label htmlFor='ckb'>Remember me</label>
           </span>
-          <a href="#" id='FPWD'>Forgot password</a>
+          <button type="button" onClick={goToForgot} id='FPWD'>Forgot password</button>
         </div>
 
         <button type="submit" className="Lbtn" disabled={loading}>
           {loading ? "Signing in..." : "Sign in"}
         </button>
 
-        {message && <p style={{ marginTop: "10px" }}>{message}</p>}
+        {message && <p style={{ marginTop: "10px", color: "red"}}>{message}</p>}
 
         <p className="PSup">
           Don't have an account?{" "}

@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 :root {
   font-family: sans-serif;
   /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
@@ -27,14 +30,16 @@
     z-index: 100;
     right: 0;
 }
-.Dimg h2{
+.Dimg span{
     position: absolute;
-    top: 0;
-    left: 0;
-    margin: 1em;
-    color: white;
-    font-size: 2em;
+    bottom: .5em;
+    right: 0;
+    color: rgb(181, 121, 236);
+    padding: .1em;
+    font-size: 1.5em;
     font-weight: 800;
+    background-color: rgba(255, 255, 255,1);
+    border-radius: 10px 0 0 10px;
 }
 .ann{
     animation: slide .5s ease forwards;
@@ -60,7 +65,7 @@
         transform: translateX(50vw);
     }
 }
-.Ldiv,.Rdiv,.Dimg{
+.Ldiv,.Rdiv,.CEmailDiv,.Dimg{
     width: 50%;
     height: 100vh;
     display: flex;
@@ -75,6 +80,10 @@
     position: absolute;
     right: 0;
 }
+.CEmailDiv{
+    position: absolute;
+    left: 0;
+}
 .Dimg img{
     width: 80%;
 }
@@ -85,14 +94,14 @@ body{
 h1{
     font-size: 2.3em;
 }
-form{
+form,.CEM{
     width: 50%;
 }
-label{
+label, span {
     font-size: .9em;
     font-weight: 600;
 }
-.Tinput,.Lbtn{
+.Tinput,.Lbtn, .CEM input, .CEM .Fbutton{
     display: inline-block;
     width: 100%;
     margin: .5em 0;
@@ -100,12 +109,12 @@ label{
     border-radius: 5px;
     border: solid transparent;
 }
-.Tinput{
+.Tinput, .CEM input{
     border: 1px solid #b9b8b8;
     font-weight: 600;
     width: 94%;
 }
-.Lbtn{
+.Lbtn,.CEM .Fbutton{
     background-color: indigo;
     color: white;
     cursor: pointer;
@@ -119,7 +128,7 @@ label{
     justify-content: space-between;
     align-items: center;
 }
-.pd{
+.pd, .CEM p{
     color: #777;
 }
 .ToggBtn{
@@ -133,4 +142,20 @@ label{
 a{
     text-decoration: none;
     color: indigo;
+}
+.RememberMe button, .backbutton{
+    border: none;
+    background: none;
+    color: indigo;
+    cursor: pointer;
+    font-weight: bold;
+}
+.backbutton{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1.5em;
+}
+.CEM form{
+    width: 100%;
 }

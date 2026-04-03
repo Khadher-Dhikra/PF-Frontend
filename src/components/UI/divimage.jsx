@@ -8,7 +8,7 @@ export default function DivImage({isLogin,animate}){
 
     return (
         <div className={`Dimg ${animate}`}>
-            <h2>TopG Team</h2>
+            <span>TopG Team</span>
             {isLogin ? img1 : img2}
         </div>
     );
