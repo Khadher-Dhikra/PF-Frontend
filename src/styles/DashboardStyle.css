@@ -1,0 +1,128 @@
+
+.dashboard-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f0f0f0;
+}
+.sideBar-container{
+    width: 21%;
+    height: 100vh;
+    background: rgb(30, 1, 58);
+    color: white;
+    padding: 1em;
+}
+.dashboard-content{
+    width: 79%;
+    height: 100vh;
+}
+.header-bar{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border: 2px solid #e0e0e0;
+}
+.header-logo, .Auth, .sideBarLogoContainer{
+    width: 50%;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+}
+.sideBarLogoContainer{
+    width: 100%;
+}
+.H-logo{
+    display: flex;
+    align-items: center;
+
+}
+.H-logo img, .SBCapLogo img{
+    width: 2em;
+    margin: .5em;
+}
+.SBCapLogo{
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #9E4CC7;
+    border-radius: 10px;
+    margin-right: 1em;
+}
+.HBicons{
+    font-size: 1.4em;
+    margin: .8em;
+    cursor: pointer;
+}
+.SideBarIcon{
+    cursor:e-resize;
+}
+
+.Auth{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.userName-role{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.userName-role span, .sideBarLogoContainer span{
+    display: block;
+    margin: 0;
+}
+.HRole{
+    color: #9E4CC7;
+}
+.profile-Pic{
+    width: 2.2em;
+    height: 2.2em;
+    margin: .5em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightseagreen;
+    border-radius: 50%;
+}
+
+.SdiebarNavigation{
+    margin-top: 2em;
+}
+.SdiebarNavigation p{
+    color: #9c9c9c;
+}
+.SdiebarNavigation ul{
+    padding: 0;
+}
+.SdiebarNavigation ul li{
+    list-style: none;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    margin: .7em 0;
+}
+.SdiebarNavigation ul li a{
+    color: white;
+}
+.link{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: .5em;
+    height: 2.2em;
+    border-radius: 8px;
+}
+.navigationIcon{
+    margin-right: 1em;
+    font-size: 1.4em;
+}
+.active{
+    background: rgba(255, 255, 255, 0.2);
+}

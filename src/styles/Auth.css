@@ -1,0 +1,253 @@
+*{
+    box-sizing: border-box;
+}
+:root {
+    font-family: sans-serif;
+    /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+    line-height: 1.5;
+    /* font-weight: 400; */
+
+    /* font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
+}
+#root {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction:row;
+    background: #f0f0f0;
+}
+.Auth-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.Ldiv form, .Rdiv form{
+    width: 55%;
+    background: white;
+    padding: 1em;
+    border-radius: 8px;
+    border: 2px solid #e8e8e8;
+    /* box-shadow: 2px 2px 3px 0 gray; */
+}
+.InfoPanel{
+    background-color: indigo;
+    z-index: 100;
+    color: white;
+}
+.info-content {
+    text-align: center;
+    width: 70%;
+}
+
+.logo-container{
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 1em;
+    padding: 1em;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    width: 2.5em;
+}
+.logo-title{
+    display: block;
+    font-size: 2em;
+}
+.stats-container {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+
+}
+
+.stat-box {
+    background: rgba(255, 225, 255, 0.1);
+    /* border: 1px solid white; */
+    padding: .5em 1em;
+    border-radius: 10px;
+    text-align: left;
+    transition: all 0.3s ease;
+    height: 5em;
+}
+.stat-count {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.stat-title {
+    margin: 0;
+    font-size: 1em;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgb(88, 1, 150) 25%,
+    rgb(85, 1, 146) 50%,
+    rgb(103, 1, 175) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 8px;
+}
+
+.skeleton-text {
+    width: 80%;
+    height: 40%;
+    margin: 0;
+}
+
+.skeleton-text.small {
+  width: 60%;
+  height: 30%;
+  margin-top: .5em;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.Ldiv, .Rdiv, .InfoPanel{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.title-container{
+    margin-bottom: 1em;
+}
+.title-container h1{
+    font-size: 1.5em;
+}
+.title-container p,.title-container h1{
+    margin: 0;
+}
+label, span {
+    font-size: .9em;
+    font-weight: 600;
+}
+
+.icon, .iconRight{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+.iconLeft{
+    left: 0;
+    margin: 0 .8em;
+}
+.iconRight{
+    right: 0;
+    margin: 0 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inputContainer{
+    position: relative;
+    margin: .5em 0;
+}
+.input-error {
+  border-color: red !important;
+}
+
+.shake {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+    100% { transform: translateX(0); }
+}
+.inputContainer input{
+    border: 2px solid #e0e0e0;
+    background: #f0f0f0;
+    font-weight: 600;
+    width: 100%;
+    height: 3em;
+    outline: none;
+    border-radius: 5px;
+    padding: .5em 3em;
+    transition: 0.5s ease;
+}
+.inputContainer input:focus{
+    border-color: indigo;
+}
+.Lbtn{
+    display: inline-block;
+    width: 100%;
+    margin: .5em 0;
+    padding: .7em;
+    border-radius: 5px;
+    border: solid transparent;
+}
+.Lbtn{
+    background-color: indigo;
+    color: white;
+    cursor: pointer;
+}
+.PSup{
+    text-align: center;
+}
+.RememberMe{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: .5em 0;
+}
+.pd{
+    color: #777;
+}
+.ToggBtn{
+    text-decoration: none;
+    color: indigo;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
+}
+a{
+    text-decoration: none;
+    color: indigo;
+}
+.RememberMe button, .backbutton{
+    border: none;
+    background: none;
+    color: indigo;
+    cursor: pointer;
+    font-weight: bold;
+}
+.backbutton{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1.5em;
+}
