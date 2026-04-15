@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import academicCap from "../assets/academic-cap.png"
 import CountUp from "react-countup";
 import StatSkeleton from "./statSkeleton";
+//import { authService } from "../services/auth.service";
 
 export default function InfoPanel() {
   const [loading, setLoading] = useState(true);

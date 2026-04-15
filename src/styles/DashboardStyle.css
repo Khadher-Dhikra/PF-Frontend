@@ -126,3 +126,100 @@
 .active{
     background: rgba(255, 255, 255, 0.2);
 }
+.main-content{
+    padding: 1em;
+}
+.DshHeader{
+    margin-bottom: 1.5em;
+}
+.DshHeader h1{
+    margin: 0;
+    font-size: 1.7em;
+}
+.DshHeader span{
+    margin: 0;
+    font-size: 1em;
+    color: #787480;
+}
+.statCard-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+.statCard, .DshPProgress, .DshPInformation{
+    flex: 1;
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    padding: 1em;
+    position: relative;
+    border-radius: 5px;
+}
+.statCard span{
+    display: block;
+}
+.statCard > span:nth-child(1),
+.statCard > span:nth-child(3){
+    color: #a59cb3;
+    font-size: .9em;
+}
+.statCard > span:nth-child(2){
+    font-size: 1.6em;
+}
+
+.statCard-icon{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d9b2ec;
+    width: 2.3em;
+    height: 2.3em;
+    border-radius: 8px;
+}
+.statIcon{
+    font-size: 1.4em;
+    color: indigo;
+}
+.StudProjectInformation{
+    width: 100%;
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+.PProgress{
+    width: 100%;
+}
+.ProgressPersent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.progressBar{
+    width: 100%;
+    height: .7em;
+    background: #c8bddd;
+    border-radius: 9px;
+}
+.progressBar div{
+    width: 45%;
+    height: .7em;
+    background-color: #9E4CC7;
+}
+.PInformationTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.PInformationTitle span{
+    background-color: #2166c1;
+    padding: .7em;
+    border-radius: 999px;
+    color: white;
+}

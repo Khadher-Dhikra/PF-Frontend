@@ -22,7 +22,7 @@ export const authService = {
   },
 
   logout: async (refreshToken) => {
-    const res = await api.post("/logout.php.php", refreshToken);
+    const res = await api.post("/logout.php", {refreshToken} );
     return res.data;
   },
 };

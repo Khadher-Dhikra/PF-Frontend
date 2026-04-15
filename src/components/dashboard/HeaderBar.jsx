@@ -1,7 +1,7 @@
-import academicCap from "../assets/academic-cap-purple.png";
+import academicCap from "../../assets/academic-cap-purple.png";
 import { MdLogout, MdNotificationsNone } from "react-icons/md";
 import { FiSidebar } from "react-icons/fi";
-import { useAuth } from "../Auth/useAuth";
+import { useAuth } from "../../Auth/useAuth";
 import { useNavigate } from "react-router-dom";
 
 export default function HeaderBar() {
