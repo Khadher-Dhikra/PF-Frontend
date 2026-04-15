@@ -1,7 +1,7 @@
-import academicCap from "../assets/academic-cap.png";
+import academicCap from "../../assets/academic-cap.png";
 import { NavLink } from "react-router-dom";
-import { sidebarConfig } from "../config/sidebar.config";
-import { useAuth } from "../Auth/useAuth";
+import { sidebarConfig } from "../../config/sidebar.config";
+import { useAuth } from "../../Auth/useAuth";
 import { useState } from "react";
 
 export default function SideBar() {
