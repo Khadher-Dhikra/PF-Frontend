@@ -12,9 +12,20 @@ export default function StudentDashboard() {
 
             <StatCard />
 
-            <div className="StudProjectInformation">
-                <ProjectProgress />
-                <ProjectInformation />
+            <div className="DashboardInformation">
+                <div
+                    className="leftDshbBox"
+                    style={{flex:6}}
+                >   
+                    <ProjectProgress />
+                </div>
+                <div
+                    className="rightDshbBox"
+                    style={{flex:4}}
+                >
+                    <ProjectInformation />
+                </div>
+                
             </div>
         </>
     );
