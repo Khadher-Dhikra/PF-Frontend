@@ -1,7 +1,7 @@
 
 export default function ProjectProgress() {
     return(
-        <div className="DshPProgress">
+        <>
 
             <h2>Project Progress</h2>
             
@@ -20,6 +20,6 @@ export default function ProjectProgress() {
             <div className="ProjectTasks">
 
             </div>
-        </div>
+        </>
     );
 }

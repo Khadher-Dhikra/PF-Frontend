@@ -1,4 +1,3 @@
-
 .dashboard-container{
     width: 100%;
     height: 100vh;
@@ -17,6 +16,9 @@
 .dashboard-content{
     width: 79%;
     height: 100vh;
+}
+.main-content{
+    padding: 1em;
 }
 .header-bar{
     width: 100%;
@@ -126,9 +128,6 @@
 .active{
     background: rgba(255, 255, 255, 0.2);
 }
-.main-content{
-    padding: 1em;
-}
 .DshHeader{
     margin-bottom: 1.5em;
 }
@@ -149,14 +148,17 @@
     align-items: center;
     gap: 1em;
 }
-.statCard, .DshPProgress, .DshPInformation{
-    flex: 1;
+.statCard, .leftDshbBox, .rightDshbBox{
     background-color: white;
     border: 2px solid #e0e0e0;
     padding: 1em;
     position: relative;
-    border-radius: 5px;
+    border-radius: 8px;
 }
+.statCard{
+    flex: 1;
+}
+/* .leftDshbBox, .rightDshbBox */
 .statCard span{
     display: block;
 }
@@ -185,7 +187,7 @@
     font-size: 1.4em;
     color: indigo;
 }
-.StudProjectInformation{
+.DashboardInformation{
     width: 100%;
     margin-top: 1em;
     display: flex;

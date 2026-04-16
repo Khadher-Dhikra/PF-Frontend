@@ -1,7 +1,7 @@
 
 export default function ProjectInformation() {
     return(
-        <div className="DshPInformation">
+        <>
             <div className="PInformationTitle">
                 <h2>Project Information</h2>
                 <span>In Progress</span>
@@ -20,7 +20,7 @@ export default function ProjectInformation() {
                 <span>Defense Date</span>
                 <p>June 10, 2026</p>
             </div>
-        </div>
+        </>
     );
     
 }
