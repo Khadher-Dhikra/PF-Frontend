@@ -1,5 +1,5 @@
 
-export default function coordQuickAction() {
+export default function CoordQuickAction() {
     return(
         <>
             

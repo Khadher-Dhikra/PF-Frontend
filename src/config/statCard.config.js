@@ -9,14 +9,17 @@ export const statCardConfig = {
         {
             title: "My Project",
             icon:  LuFolderOpen,
+            key: "projects"
         },
         {
             title: "Reports",
             icon:  FaRegFileAlt,
+            key: "reports"
         },
         {
             title: "Next Deadline",
             icon:  FiCalendar,
+            key: "deadline"
         },
     ],
     
@@ -24,18 +27,22 @@ export const statCardConfig = {
         {
             title: "Students",
             icon:  MdOutlineGroup,
+            key: "students"
         },
         {
             title: "Tutors",
             icon:  IoBookOutline,
+            key: "tutors"
         },
         {
             title: "Jury Members",
             icon:  MdOutlineAccountCircle,
+            key: "jury"
         },
         {
             title: "Active Projects",
             icon:  LuFolderOpen,
+            key: "projects"
         },
         
     ],
@@ -43,7 +50,7 @@ export const statCardConfig = {
     tutor: [
         {
             title: "Mentored Students",
-            icon:  LuFolderOpen,
+            icon:  MdOutlineGroup,
         },
         {
             title: "Active Projects",

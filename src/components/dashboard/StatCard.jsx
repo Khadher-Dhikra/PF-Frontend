@@ -1,32 +1,47 @@
+import { useEffect, useState } from "react";
 import { statCardConfig } from "../../config/statCard.config";
 import { useAuth } from "../../Auth/useAuth";
+import { statService } from "../../services/stat.service";
 
 export default function StatCard() {
-    const {user} = useAuth();
-    const stat = statCardConfig[user?.role] || [];
 
-    console.log(user.role)
-    console.log(stat)
+    const { user } = useAuth();
+    const [statsData, setStatsData] = useState({});
 
-    return(
+    const config = statCardConfig[user?.role] || [];
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const data = await statService.getStats();
+                setStatsData(data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchStats();
+    }, []);
+
+    return (
         <div className="statCard-container">
             {
-                stat.map((item, index)=>{
+                config.map((item, index) => {
                     const Icon = item.icon;
-                    return(
+
+                    return (
                         <div key={index} className="statCard">
                             <span>{item.title}</span>
-                            <span>En cours</span>
-                            <span>systeme de gestion DH</span>
+
+                            <span>{statsData[item.key] || "..."}</span>
 
                             <div className="statCard-icon">
                                 <Icon className="statIcon"/>
                             </div>
                         </div>
-                    )
-                })  
+                    );
+                })
             }
-        
         </div>
     );
 }

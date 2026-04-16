@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: space-between;
     background: #f0f0f0;
+    border: 1px solid red;
 }
 .sideBar-container{
     width: 21%;
@@ -28,6 +29,7 @@
     justify-content: space-between;
     background-color: white;
     border: 2px solid #e0e0e0;
+    border: 1px solid green;
 }
 .header-logo, .Auth, .sideBarLogoContainer{
     width: 50%;
@@ -207,12 +209,22 @@
     width: 100%;
     height: .7em;
     background: #c8bddd;
-    border-radius: 9px;
+    border-radius: 999px;
+    flex: 9;
 }
 .progressBar div{
     width: 45%;
     height: .7em;
     background-color: #9E4CC7;
+    border-radius: 999px;
+}
+.progressbarTable{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+.progressbarTableSpan{
+    flex: 1;
 }
 .PInformationTitle{
     display: flex;
@@ -224,4 +236,35 @@
     padding: .7em;
     border-radius: 999px;
     color: white;
+}
+.DshTable{
+    width: 100%;
+    text-align: left;
+}
+.DshTable tr th{
+    color: #a59cb3;
+}
+.DshTable tr th, .DshTable tr td{
+    padding: .5em 1em;
+    border-bottom: 2px solid #e0e0e0;
+}
+.tableProg{
+    background-color: #2166c1;
+    padding: .4em;
+    color: white;
+    border-radius: 999px;
+}
+.cent{
+    text-align: center;
+}
+.BTN{
+    border: 2px solid #e0e0e0;
+    padding: .6em;
+    border-radius: 8px;
+    background: #f3f3f3;
+    transition: .3s all ease;
+    cursor: pointer;
+}
+.BTN:hover{
+    background: #dbdada;
 }

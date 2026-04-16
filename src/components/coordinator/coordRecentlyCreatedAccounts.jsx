@@ -1,5 +1,5 @@
 
-export default function coordRecentlyCreatedAccounts() {
+export default function CoordRecentlyCreatedAccounts() {
     return(
         <>
             <div className="PInformationTitle">
