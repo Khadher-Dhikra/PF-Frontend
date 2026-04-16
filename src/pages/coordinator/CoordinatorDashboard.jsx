@@ -1,6 +1,6 @@
 import StatCard from "../../components/dashboard/StatCard";
-import coordRecentlyCreatedAccounts from "../../components/coordinator/coordRecentlyCreatedAccounts";
-import coordQuickAction from "../../components/coordinator/coordQuickAction";
+import CoordRecentlyCreatedAccounts from "../../components/coordinator/CoordRecentlyCreatedAccounts";
+import CoordQuickAction from "../../components/coordinator/CoordQuickAction";
 
 export default function CoordinatorDashboard() {
     return(
@@ -15,13 +15,13 @@ export default function CoordinatorDashboard() {
                     className="leftDshbBox"
                     style={{flex:7}}
                 >
-                    <coordRecentlyCreatedAccounts />
+                    <CoordRecentlyCreatedAccounts />
                 </div>
                 <div
                     className="rightDshbBox"
                     style={{flex:3}}
                 >
-                    <coordQuickAction />
+                    <CoordQuickAction />
                 </div>
             </div>
         </>
