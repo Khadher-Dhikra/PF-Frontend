@@ -28,12 +28,11 @@ export default function StatCard() {
             {
                 config.map((item, index) => {
                     const Icon = item.icon;
-
                     return (
                         <div key={index} className="statCard">
                             <span>{item.title}</span>
 
-                            <span>{statsData[item.key] || "..."}</span>
+                            <span>{statsData[item.key] ?? "..."}</span>
 
                             <div className="statCard-icon">
                                 <Icon className="statIcon"/>

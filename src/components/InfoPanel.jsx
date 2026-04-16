@@ -1,55 +1,59 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import academicCap from "../assets/academic-cap.png"
+import academicCap from "../assets/academic-cap.png";
 import CountUp from "react-countup";
 import StatSkeleton from "./statSkeleton";
-//import { authService } from "../services/auth.service";
+import { statService } from "../services/stat.service";
 
 export default function InfoPanel() {
-  const [loading, setLoading] = useState(true);
-  //const [error, setError] = useState(null);
   const defaultStats = [
-    { count: 100, title: "Managed Projects" },
-    { count: 0, title: "Active Students" },
-    { count: 0, title: "Presentations" },
-    { count: 0, title: "Tutors" },
-  ]
+    { key: "projects", count: 0, title: "Managed Projects" },
+    { key: "students", count: 0, title: "Active Students" },
+    { key: "defenses", count: 0, title: "Presentations" },
+    { key: "tutors", count: 0, title: "Tutors" },
+  ];
+
   const [stats, setStats] = useState(defaultStats);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost/api/stats.php")
-      .then((res) => res.json())
-      .then((data) => {
-        const safeData = defaultStats.map((def, i) => ({
-          ...def,
-          count: data[i]?.count ?? 0,
+    const fetchStats = async () => {
+      try {
+        const res = await statService.getPubStats();
+
+        console.log("INFO PANEL DATA:", res);
+
+        const mappedStats = defaultStats.map((item) => ({
+          ...item,
+          count: Number(res?.[item.key] ?? 0),
         }));
 
-        setStats(safeData);
+        setStats(mappedStats);
+      } catch (err) {
+        console.log(err);
+        setStats(defaultStats);
+      } finally {
         setLoading(false);
-      })
-      .catch((err) => {
-        setStats(defaultStats)
-        //setError("Failed to load stats");
-        console.log(err)
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchStats();
   }, []);
 
   return (
     <motion.div
-      className={`InfoPanel`}
+      className="InfoPanel"
       layoutId="panel"
-      transition={{ duration: 0.6, ease:"easeInOut" }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
     >
       <div className="info-content">
         <div className="logo-container">
-          <img className="logo" src={academicCap} alt="academic-cap-logo" />
+          <img className="logo" src={academicCap} alt="logo" />
         </div>
+
         <span className="logo-title">FSTSBZ-Academia</span>
-        <p className="subtitle">
-          Academic Project Management Platform
-        </p>
+
+        <p className="subtitle">Academic Project Management Platform</p>
 
         <div className="stats-container">
           {loading ? (
@@ -58,21 +62,20 @@ export default function InfoPanel() {
             ))
           ) : (
             stats.map((item) => (
-              <div className="stat-box" key={item.title}>
+              <div className="stat-box" key={item.key}>
                 <span className="stat-count">
-                  <CountUp 
+                  <CountUp
+                    key={item.key}
                     start={0}
-                    end={item.count}
+                    end={item.count || 0}
                     duration={1.5}
-                    redraw
-                    enableScrollSpy
-                    scrollSpyOnce
                   />
                 </span>
+
                 <p className="stat-title">{item.title}</p>
               </div>
             ))
-          )}    
+          )}
         </div>
       </div>
     </motion.div>
