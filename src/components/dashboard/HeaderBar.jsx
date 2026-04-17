@@ -4,7 +4,7 @@ import { FiSidebar } from "react-icons/fi";
 import { useAuth } from "../../Auth/useAuth";
 import { useNavigate } from "react-router-dom";
 
-export default function HeaderBar() {
+export default function HeaderBar({toggleSideBar}) {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
 
@@ -17,7 +17,10 @@ export default function HeaderBar() {
         <header className="header-bar">
 
             <div className="header-logo">
-                <FiSidebar className="HBicons SideBarIcon"/>
+                <div className="SideBarIcon" onClick={toggleSideBar}>
+                    <FiSidebar className="HBicons"/>
+                </div>
+                
                 
                 <div className="H-logo">
                     <img src={academicCap} alt="academicCap" />
@@ -34,6 +37,7 @@ export default function HeaderBar() {
                     onClick={handleLogout}
                 >
                     <MdLogout className="HBicons"/>
+                    
                 </div>
 
                 <div className="userName-role">

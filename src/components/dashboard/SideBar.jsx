@@ -4,13 +4,13 @@ import { sidebarConfig } from "../../config/sidebar.config";
 import { useAuth } from "../../Auth/useAuth";
 import { useState } from "react";
 
-export default function SideBar() {
+export default function SideBar(sideBarPos) {
     const { user } = useAuth();
     const menu = sidebarConfig[user?.role] || [];
     const [activeLink, setActiveLink] = useState();
-
+    
     return(
-        <div className="sideBar-container">
+        <div className={sideBarPos?"sideBar-container sideBar-Active":"sideBar-container sideBar-Active"}>
 
             <div className="sideBarLogoContainer">
                 <div className="SBCapLogo">

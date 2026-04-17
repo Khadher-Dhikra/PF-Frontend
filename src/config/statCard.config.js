@@ -1,7 +1,7 @@
 import { LuFolderOpen, LuClipboardCheck, LuMessageSquare } from "react-icons/lu";
 import { FaRegFileAlt } from "react-icons/fa";
-import { FiCalendar } from "react-icons/fi";
-import { MdOutlineAccountCircle, MdOutlineGroup } from "react-icons/md";
+import { FiCalendar, FiUserCheck } from "react-icons/fi";
+import { MdOutlineGroup } from "react-icons/md";
 import { IoBookOutline  } from "react-icons/io5";
 
 export const statCardConfig = {
@@ -15,7 +15,7 @@ export const statCardConfig = {
     coordinator: [
         { title: "Students", icon: MdOutlineGroup, key: "students" },
         { title: "Tutors", icon: IoBookOutline, key: "tutors" },
-        { title: "Jury Members", icon: MdOutlineAccountCircle, key: "jury" },
+        { title: "Jury Members", icon: FiUserCheck, key: "jury" },
         { title: "Active Projects", icon: LuFolderOpen, key: "projects" },
     ],
 

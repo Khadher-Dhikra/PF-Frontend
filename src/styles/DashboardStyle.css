@@ -3,18 +3,22 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex-direction: row;
     background: #f0f0f0;
 }
 .sideBar-container{
-    width: 21%;
+    flex: 1.8;
     height: 100vh;
     background: rgb(30, 1, 58);
     color: white;
     padding: 1em;
+    transition: .5s all ease;
 }
+.sideBar-Active{
+    width: 10%;
+} 
 .dashboard-content{
-    width: 79%;
+    flex: 8.2;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -62,16 +66,25 @@
 }
 .HBicons{
     font-size: 1.4em;
-    margin: .8em;
+    margin: .4em;
     cursor: pointer;
 }
-.SideBarIcon{
+.SideBarIcon .HBicons{
     cursor:e-resize;
 }
-
 .Auth{
     display: flex;
     flex-direction: row-reverse;
+}
+.logout, .notification, .SideBarIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .8em;
+}
+.logout:hover{
+    background-color: orange;
+    border-radius: 8px;
 }
 .userName-role{
     display: flex;
@@ -124,12 +137,17 @@
     height: 2.2em;
     border-radius: 8px;
 }
+.link:hover{
+    background: rgba(255, 255, 255, 0.1);
+}
 .navigationIcon{
     margin-right: 1em;
     font-size: 1.4em;
 }
 .active{
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(185, 95, 238, 0.3) !important;
+    border-left: 4px solid #9E4CC7;
+    border-right: 4px solid #9E4CC7;
 }
 .DshHeader{
     margin-bottom: 1.5em;
@@ -160,6 +178,11 @@
 }
 .statCard{
     flex: 1;
+    transition: .3s all ease;
+}
+.statCard:hover{
+    box-shadow: rgba(0, 0, 0, .15) 1.95px 1.95px 2.6px;
+    transform: translateY(-.5em);
 }
 /* .leftDshbBox, .rightDshbBox */
 .statCard span{

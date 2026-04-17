@@ -1,9 +1,9 @@
 import { LuLayoutDashboard, LuFolderOpen, LuUpload, LuMessageSquare, LuClipboardCheck } from "react-icons/lu";
 import { FaRegFileAlt } from "react-icons/fa";
-import { FiCalendar } from "react-icons/fi";
+import { FiCalendar, FiUserCheck } from "react-icons/fi";
 import { IoSettingsOutline, IoBookOutline  } from "react-icons/io5";
 import { HiOutlineAcademicCap } from "react-icons/hi2";
-import { MdOutlineAccountCircle, MdOutlineGroup } from "react-icons/md";
+import { MdOutlineGroup } from "react-icons/md";
 
 export const sidebarConfig ={
     student: [
@@ -66,7 +66,7 @@ export const sidebarConfig ={
         {
             title: "Jury",
             path: "coordinator/jury",
-            icon: MdOutlineAccountCircle,
+            icon: FiUserCheck,
         },
 
         {

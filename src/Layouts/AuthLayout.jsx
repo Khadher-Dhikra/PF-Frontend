@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import InfoPanel      from '../components/InfoPanel';
+import InfoPanel from '../components/InfoPanel';
 import '../styles/Auth.css';
 
 export default function AuthLayout() {
