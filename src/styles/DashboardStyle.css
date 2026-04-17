@@ -147,7 +147,6 @@
 .active{
     background: rgba(185, 95, 238, 0.3) !important;
     border-left: 4px solid #9E4CC7;
-    border-right: 4px solid #9E4CC7;
 }
 .DshHeader{
     margin-bottom: 1.5em;
@@ -264,9 +263,13 @@
 .DshTable{
     width: 100%;
     text-align: left;
+    border-radius: 8px;
 }
 .DshTable tr th{
     color: #a59cb3;
+}
+.DshTable tr:hover{
+    background-color: #f3f3f3;
 }
 .DshTable tr th, .DshTable tr td{
     padding: .5em 1em;

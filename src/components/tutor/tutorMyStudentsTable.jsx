@@ -33,6 +33,7 @@ export default function TutorMyStudentsTable() {
                         <span className="tableProg">In Progress</span>
                     </td>
                 </tr>
+                
             </table>
         </>
     );
