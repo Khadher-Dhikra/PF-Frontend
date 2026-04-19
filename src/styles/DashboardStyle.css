@@ -236,7 +236,6 @@
     flex: 9;
 }
 .progressBar div{
-    width: 45%;
     height: .7em;
     background-color: #9E4CC7;
     border-radius: 999px;
@@ -268,6 +267,9 @@
 .DshTable tr th{
     color: #a59cb3;
 }
+.DshTable tr{
+    font-weight: 600;
+}
 .DshTable tr:hover{
     background-color: #f3f3f3;
 }
@@ -280,6 +282,9 @@
     padding: .4em;
     color: white;
     border-radius: 999px;
+}
+.tableProg:hover{
+    background-color: #4185dd;
 }
 .cent{
     text-align: center;

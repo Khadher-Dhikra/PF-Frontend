@@ -6,7 +6,7 @@ export default function TutorDashboard() {
         <>
             <div className="DshHeader">
                 <h1>Tutor Dashboard</h1>
-                <span>tracking your academic project</span>
+                <span>track your students and projects</span>
             </div>
                 
             <StatCard />
