@@ -5,18 +5,16 @@ export default function TutorMyStudentsTable() {
     const [tutStudent, setTutStudent] = useState([]);
 
     useEffect(() => {
-            const fetchStats = async () => {
-                try {
-                    const data = await tutorService.getTutorStudents();
-                    setTutStudent(data.students);
-                    console.log(data);
-                    console.log(data.students);
-                } catch (err) {
-                    console.error(err);
-                }
-            };
-            fetchStats();
-        }, []);
+        const fetchStats = async () => {
+            try {
+                const data = await tutorService.getTutorStudents();
+                setTutStudent(data.students);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        fetchStats();
+    }, []);
     
     return(
         <>

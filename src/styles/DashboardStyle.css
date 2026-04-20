@@ -255,9 +255,13 @@
 }
 .PInformationTitle span{
     background-color: #2166c1;
-    padding: .7em;
+    font-size: .8em;
+    padding: .6em;
     border-radius: 999px;
     color: white;
+}
+.PInformationTitle span:hover{
+    background-color: #4185dd;
 }
 .DshTable{
     width: 100%;
@@ -299,4 +303,25 @@
 }
 .BTN:hover{
     background: #dbdada;
+}
+.tasksList{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 .4em;
+}
+.tasksList > div:nth-child(1){
+    display: flex;
+    align-items: center;
+}
+.tacksIconBox{
+    font-size: 1.5em;
+    padding: .5em;
+}
+.tasksStatus{
+    font-size: .7em;
+    padding: .6em;
+    border-radius: 999px;
+    color: white;
 }
