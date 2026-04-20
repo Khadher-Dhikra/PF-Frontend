@@ -8,7 +8,7 @@ export default function TutorMyStudentsTable() {
         const fetchStats = async () => {
             try {
                 const data = await tutorService.getTutorStudents();
-                setTutStudent(data.students);
+                setTutStudent(data?.students ?? []);
             } catch (err) {
                 console.error(err);
             }
