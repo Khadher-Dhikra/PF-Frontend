@@ -130,6 +130,9 @@ PF-Frontend/
 4. Password reset is handled via email using PHPMailer
 
 ---
+## 🔗 Related Repository
+
+- **Backend (PF-Backend)**: [github.com/Khadher-Dhikra/PF-Backend](https://github.com/Khadher-Dhikra/PF-Backend)
 
 ## 📄 License
 
